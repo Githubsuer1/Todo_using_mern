@@ -37,8 +37,8 @@ async function editTodo(req,res) {
         const id = req.params.id;
         const content = req.body.content;
 
-        console.log(req.body.content)
-        console.log(id)
+        // console.log(req.body.content)
+        // console.log(id)
 
         if(!id) throw new APIError(400,"Id is required to update the todo item");
         if(!content) throw new APIError(400,"Content is required to update the todo item");
@@ -60,9 +60,9 @@ async function editTodo(req,res) {
 async function removeTodo(req,res){
     try {
         const id = req.params.id;
-        console.log(id);
+        // console.log(id);
         const deletedTodo = await TodoList.findByIdAndDelete(id);
-        console.log(deletedTodo)
+        // console.log(deletedTodo)
         if(!deletedTodo){
             res.status(400).send(json({message:"todo not found"}))
         }
@@ -79,7 +79,7 @@ async function todoComplete(req,res){
     const id = req.params.id;
     try {
         const user = await TodoList.findById(id);
-        console.log(user.completed);
+        // console.log(user.completed);
         const completeTodo = await TodoList.findByIdAndUpdate(id,{completed:!user.completed});
         res.status(200).json(completeTodo);
     } catch (error) {
