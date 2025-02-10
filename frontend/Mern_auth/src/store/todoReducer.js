@@ -12,7 +12,7 @@ export const fetchTodo = createAsyncThunk(
     async ()=>{
         try {
             const response = await axios.get('https://todo-using-mern-zeta.vercel.app/api/v1/todos');
-            console.log(response);            
+            // console.log(response);            
             return response.data;
         } catch (error) {
             console.log('error',error);
@@ -38,7 +38,7 @@ export const editTodo = createAsyncThunk(
     'todos/editTodo',
     async (item)=>{
         try {
-            console.log(item.todoMsg)
+            // console.log(item.todoMsg)
             const response = await axios.patch(`https://todo-using-mern-zeta.vercel.app/api/v1/todos/edit/${item._id}`,{content:item.todoMsg});
             return response.data;
         } catch (error) {
