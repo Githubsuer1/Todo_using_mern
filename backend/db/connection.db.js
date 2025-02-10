@@ -1,24 +1,3 @@
-// import mongoose from 'mongoose';
-// import DB_NAME from '../constant.js';
-// import dotenv from 'dotenv'
-
-
-// dotenv.config({
-//     path:'./env'
-// })
-
-// async function ConnectDB(){
-//     try{
-//         const connectionInstance = await mongoose.connect('mongodb://localhost:27017/MyUserDb');
-//         // const connectionInstance = await mongoose.connect(`mongodb+srv://User_siddhant:asdfghjkl@cluster0.rkafu.mongodb.net/TodoList`)
-//         console.log(`MONGODB Connected on Host ${connectionInstance.connection.host}`);
-//     }
-//     catch(error){
-//         console.log(`MongoDB Connection Failed | ${error}`);
-//     }
-// }
-
-// export {ConnectDB};
 
 import mongoose from 'mongoose';
 import DB_NAME from '../constant.js';
