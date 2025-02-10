@@ -11,7 +11,7 @@ export const fetchTodo = createAsyncThunk(
     'todos/fetchTodos',
     async ()=>{
         try {
-            const response = await axios.get('/api/v1/todos');
+            const response = await axios.get('https://todo-using-mern-zeta.vercel.app//api/v1/todos');
             console.log(response);            
             return response.data;
         } catch (error) {
@@ -25,7 +25,7 @@ export const addTodo = createAsyncThunk(
     'todos/addTodo',
     async (newTodos)=>{
        try {
-        const response = await axios.post(`/api/v1/todos/add`,newTodos);
+        const response = await axios.post(`https://todo-using-mern-zeta.vercel.app//api/v1/todos/add`,newTodos);
         return response.data;
        } catch (error) {
         console.log('error',error);
@@ -39,7 +39,7 @@ export const editTodo = createAsyncThunk(
     async (item)=>{
         try {
             console.log(item.todoMsg)
-            const response = await axios.patch(`/api/v1/todos/edit/${item._id}`,{content:item.todoMsg});
+            const response = await axios.patch(`https://todo-using-mern-zeta.vercel.app//api/v1/todos/edit/${item._id}`,{content:item.todoMsg});
             return response.data;
         } catch (error) {
           console.log("Update data error",error);
@@ -52,7 +52,7 @@ export const deleteTodo = createAsyncThunk(
     'todos/deleteTodo',
     async (id)=>{
         try {
-          const response = await axios.delete(`/api/v1/todos/delete/${id}`)
+          const response = await axios.delete(`https://todo-using-mern-zeta.vercel.app//api/v1/todos/delete/${id}`)
           return id;
         } catch (error) {
           console.log("Todo not deleted",error);
@@ -66,7 +66,7 @@ export const todoComplete = createAsyncThunk(
     async (id)=>{
         try {
             if(id){
-              const response = await axios.patch(`/api/v1/todos/completed/${id}`);
+              const response = await axios.patch(`https://todo-using-mern-zeta.vercel.app//api/v1/todos/completed/${id}`);
               return response.data;
             //   setTodos((prevTodo)=>prevTodo.map((todo)=>id===todo._id?{...todo,completed:!todo.completed}:todo))
             }
