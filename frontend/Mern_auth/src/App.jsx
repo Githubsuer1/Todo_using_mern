@@ -1,20 +1,23 @@
 import { Outlet } from 'react-router-dom';
-import './App.css'
+import './App.css';
 import Header from './components/header';
 import Footer from './components/footer';
-// import {HandleApi} from './Handle';
 import store from './store/store';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
     <Provider store={store}>
-      <div className='min-h-screen bg-gradient-to-r from-blue-500 to-purple-600'>
-        <Header />
-        <h1 className='text-center mt-2 p-4 text-2xl sm:text-4xl font-bold'>To-do App</h1>
+      <div className='bg-gradient-to-r from-blue-500 to-purple-600 min-h-screen'>
+        {/* Fixed Navbar */}
+        <Header className='fixed top-0 left-0 right-0 z-50' />
+        <div className='pt-16'> {/* Add padding-top to account for the fixed navbar */}
           <Outlet />
+        </div>
+        <Footer />
       </div>
     </Provider>
-  )
+  );
 }
-export default App
+
+export default App;
